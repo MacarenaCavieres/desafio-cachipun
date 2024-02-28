@@ -1,9 +1,6 @@
 const btnVeces = document.querySelector("#btnVeces");
-// const piedra = document.querySelector("#piedra").value;
-// const papel = document.querySelector("#papel").value;
-// const tijera = document.querySelector("#tijera").value;
-
 const btnEleccion = document.querySelector("#btnEleccion");
+const refresh = document.querySelector("#refresh");
 
 const user = document.querySelector("#user");
 const parra = document.createElement("p");
@@ -17,7 +14,16 @@ const resultado = document.querySelector("#resultado");
 const parr = document.createElement("p");
 resultado.appendChild(parr);
 
-btnEleccion.addEventListener("click", function () {
+const cantidadDeVeces = document.querySelector("#cantidadDeVeces");
+const graph = document.createElement("p");
+cantidadDeVeces.appendChild(graph);
+
+const cuantoQueda = document.querySelector("#cuantoQueda");
+const gra = document.createElement("p");
+cuantoQueda.appendChild(gra);
+
+btnEleccion.addEventListener("click", function (e) {
+    e.preventDefault();
     let eleccion = document.querySelector("#eleccion").value;
     let eleccionNum = +eleccion;
 
@@ -31,8 +37,6 @@ btnEleccion.addEventListener("click", function () {
         user.innerText = "Elegiste Tijera";
         eleccionNum = "Tijera";
     }
-
-    console.log(eleccionNum);
 
     let eleccionComputador = Math.floor(Math.random() * 3);
 
@@ -48,8 +52,6 @@ btnEleccion.addEventListener("click", function () {
             break;
     }
     computador.innerText = `Computador eligio ${eleccionComputador}`;
-
-    console.log(eleccionComputador);
 
     if (eleccionComputador === eleccionNum) {
         parr.innerText = "Empate";
@@ -70,11 +72,19 @@ btnEleccion.addEventListener("click", function () {
     }
 });
 
-// btnVeces.addEventListener("click", function () {
-//     let veces = document.querySelector("#veces").value;
-//     let vecesNum = +veces;
+btnVeces.addEventListener("click", function () {
+    let veces = document.querySelector("#veces").value;
+    let vecesNum = +veces;
+    graph.innerText = `El juego se jugara ${vecesNum} veces`;
+    let contador = vecesNum;
+    refresh.addEventListener("click", function () {
+        contador--;
+        gra.innerText = `Quedan ${contador} juegos`;
+        if (contador === 0) {
+            btnEleccion.disabled = true;
+            refresh.disabled = true;
+        }
+    });
+});
 
-//     for (let i = 1; i <= vecesNum; i++) {
-//         // console.log(i);
-//     }
-// });
+//----------------------------------------------------------------------------

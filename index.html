@@ -9,9 +9,9 @@
         <h1>Bienvenid@ al juego cachipun</h1>
         <p>A continuación indica por favor cuantas veces quieres jugar este juego</p>
 
-        <div>
+        <div id="cantidadDeVeces">
             <label for="veces">Cantidad de veces</label>
-            <input type="number" name="veces" id="veces" />
+            <input type="number" name="veces" id="veces" min="1" />
             <button id="btnVeces" type="submit">Confirmar</button>
         </div>
 
@@ -22,14 +22,19 @@
                 <li>1: Papel 🧻</li>
                 <li>2: Tijera ✂️</li>
             </ul>
+        </div>
+        <form id="refrescar">
             <input type="number" name="eleccion" id="eleccion" min="0" max="2" />
             <button id="btnEleccion" type="submit">Confirmar</button>
-        </div>
-        <div id="elecciones">
-            <p id="user"></p>
-            <p id="computador"></p>
-            <p id="resultado"></p>
-        </div>
+            <button id="refresh" type="reset">Refrescar</button>
+            <div id="elecciones"></div>
+            <div>
+                <p id="user"></p>
+                <p id="computador"></p>
+                <p id="resultado"></p>
+                <p id="cuantoQueda"></p>
+            </div>
+        </form>
         <script src="assets/js/app.js"></script>
     </body>
 </html>
