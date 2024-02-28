@@ -87,4 +87,4 @@ btnVeces.addEventListener("click", function () {
     });
 });
 
-//----------------------------------------------------------------------------
+//----------------En programa prompt hice uno con ciclo for----------------
